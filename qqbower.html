@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box; 
+		}
+		#main{
+			-webkit-transform-style: preserve-3d;
+    		-webkit-perspective: 1000px;
+			transform-style: preserve-3d;
+    		perspective: 1000px;
+		}
+		#images{
+			width: 368px;
+			height: 204px;
+			margin: 200px auto;
+			display: block;
+    		-webkit-transition: transform .1s ease;
+    		transition: transform .1s ease;
+		}
+	</style>
+</head>
+<body>
+<div id="main">
+	<img src="http://stdl.qq.com/stdl/newtabcms/production/cc5d50efeab0a91ebd7abccd903d8ae9.png" alt="" id="images">
+</div>
+	
+</body>
+<script>
+	var image=document.getElementById('images'),
+	Width=parseInt( getComputedStyle(image,false).width ),
+	Height=parseInt( getComputedStyle(image,false).height )
+	maxX=20,
+	maxY=20;
+	images.onmousemove=function(e){
+		var x=e.clientX-image.offsetLeft,
+		y=e.clientY-image.offsetTop,
+		Xnub,
+		Ynub;
+		if (y>Height/2) {
+			Xnub=-maxY*y/Height;
+		}else{
+			Xnub=maxY*( Height-y )/Height;
+		}
+		if (x>Width/2) {
+			Ynub=maxX*x/Width;
+		}else{
+			Ynub=-maxX*( Width-x )/Width;
+		}
+		images.style.transform='rotateX('+Xnub+'deg) rotateY('+Ynub+'deg) scale(1.2)';
+		images.style.webKitTransform='rotateX('+Xnub+'deg) rotateY('+Ynub+'deg) scale(1.2)';
+		images.onmouseout=function(){
+			images.style.transform='rotateX(0deg) rotateY(0deg) scale(1)';
+			images.style.webKitTransform='rotateX(0deg) rotateY(0deg) scale(1)';
+		}
+	}
+</script>
+</html>
