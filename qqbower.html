@@ -18,7 +18,7 @@
 		#images{
 			width: 368px;
 			height: 204px;
-			margin: 200px auto;
+			margin: 100px auto;
 			display: block;
     		-webkit-transition: transform .1s ease;
     		transition: transform .1s ease;
@@ -37,7 +37,7 @@
 	Height=parseInt( getComputedStyle(image,false).height )
 	maxX=20,
 	maxY=20;
-	images.onmousemove=function(e){
+	image.onmousemove=function(e){
 		var x=e.clientX-image.offsetLeft,
 		y=e.clientY-image.offsetTop,
 		Xnub,
@@ -52,11 +52,11 @@
 		}else{
 			Ynub=-maxX*( Width-x )/Width;
 		}
-		images.style.transform='rotateX('+Xnub+'deg) rotateY('+Ynub+'deg) scale(1.2)';
-		images.style.webKitTransform='rotateX('+Xnub+'deg) rotateY('+Ynub+'deg) scale(1.2)';
-		images.onmouseout=function(){
-			images.style.transform='rotateX(0deg) rotateY(0deg) scale(1)';
-			images.style.webKitTransform='rotateX(0deg) rotateY(0deg) scale(1)';
+		image.style.transform='rotateX('+Xnub+'deg) rotateY('+Ynub+'deg) scale(1.2)';
+		image.style.webKitTransform='rotateX('+Xnub+'deg) rotateY('+Ynub+'deg) scale(1.2)';
+		image.onmouseout=function(){
+			image.style.transform='rotateX(0deg) rotateY(0deg) scale(1)';
+			image.style.webKitTransform='rotateX(0deg) rotateY(0deg) scale(1)';
 		}
 	}
 </script>
