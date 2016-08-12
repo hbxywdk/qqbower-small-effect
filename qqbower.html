@@ -37,7 +37,7 @@
 	Height=parseInt( getComputedStyle(image,false).height )
 	maxX=20,
 	maxY=20;
-	image.onmousemove=function(e){
+	image.addEventListener('mousemove',function(e){
 		var x=e.clientX-image.offsetLeft,
 		y=e.clientY-image.offsetTop,
 		Xnub,
@@ -52,12 +52,19 @@
 		}else{
 			Ynub=-maxX*( Width-x )/Width;
 		}
-		image.style.transform='rotateX('+Xnub+'deg) rotateY('+Ynub+'deg) scale(1.2)';
-		image.style.webKitTransform='rotateX('+Xnub+'deg) rotateY('+Ynub+'deg) scale(1.2)';
-		image.onmouseout=function(){
-			image.style.transform='rotateX(0deg) rotateY(0deg) scale(1)';
+		image.style.OTransform='rotateX('+Xnub+'deg) rotateY('+Ynub+'deg) scale(1.1)';
+		image.style.webkitTransform='rotateX('+Xnub+'deg) rotateY('+Ynub+'deg) scale(1.1)';
+		image.style.MozTransform='rotateX('+Xnub+'deg) rotateY('+Ynub+'deg) scale(1.1)';
+		image.style.msTransform='rotateX('+Xnub+'deg) rotateY('+Ynub+'deg) scale(1.1)';
+		image.style.transform='rotateX('+Xnub+'deg) rotateY('+Ynub+'deg) scale(1.1)';
+		
+		image.addEventListener('mouseout',function(e){
+			image.style.Otransform='rotateX(0deg) rotateY(0deg) scale(1)';
 			image.style.webKitTransform='rotateX(0deg) rotateY(0deg) scale(1)';
-		}
-	}
+			image.style.MozKitTransform='rotateX(0deg) rotateY(0deg) scale(1)';
+			image.style.mstransform='rotateX(0deg) rotateY(0deg) scale(1)';
+			image.style.transform='rotateX(0deg) rotateY(0deg) scale(1)';
+		},false)
+	},false)
 </script>
 </html>
